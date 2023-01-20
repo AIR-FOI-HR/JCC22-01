@@ -5,8 +5,6 @@
 #define enA 10 // ulaz ENA na H bridge modulu ili ENABLE 1
 #define enB 5 // ulaz ENB na H bridge modulu ili ENABLE 2
 
-#test komentar
-
 
  int M1_Speed = 80; // Brzina za ENA (in 1 i 2)
  int M2_Speed = 80; // Brzina za ENB (in 1 i 3)

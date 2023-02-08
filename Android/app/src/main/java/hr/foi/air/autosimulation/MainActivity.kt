@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import hr.foi.air.autosimulation.ui.main.SectionsPagerAdapter
 import hr.foi.air.autosimulation.databinding.ActivityMainBinding
+import hr.foi.air.database1.data.MockData
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,5 +33,10 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        setupDatabase()
+    }
+    private fun setupDatabase(){
+        MockData.insertAllData(this)
     }
 }

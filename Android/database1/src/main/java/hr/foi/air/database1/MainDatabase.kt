@@ -1,6 +1,8 @@
 package hr.foi.air.database1
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import hr.foi.air.database1.entities.*
 
@@ -11,10 +13,15 @@ abstract class MainDatabase : RoomDatabase() {
     companion object{
         private var instance : MainDatabase? = null
 
-        fun getInstance() : MainDatabase{
+        fun getInstance(context : Context) : MainDatabase{
             if (instance == null){
-                instance 
+                instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    MainDatabase::class.java, "autoSim.db"
+                ).build()
             }
+
+            return instance as MainDatabase
         }
     }
 }

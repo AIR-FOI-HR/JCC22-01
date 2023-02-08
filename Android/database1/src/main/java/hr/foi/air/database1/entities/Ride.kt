@@ -11,7 +11,7 @@ data class Ride(
     var id: Int? = null,
     @ForeignKey(entity = Car::class, parentColumns = ["id"], childColumns = ["carId"])
     @ColumnInfo(index = true)
-    var carId : Int,
+    var carId : Int? = null,
     var distance : Int? = null,
     var obstacleCount : Int? = null,
 )

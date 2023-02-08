@@ -1,42 +1,38 @@
 package hr.foi.air.autosimulation
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
+import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import hr.foi.air.autosimulation.ui.main.SectionsPagerAdapter
 import hr.foi.air.autosimulation.databinding.ActivityMainBinding
+import hr.foi.air.autosimulation.databinding.FragmentMainBinding
+import hr.foi.air.database1.data.DataRepository
 import hr.foi.air.database1.data.MockData
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = FragmentMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = binding.viewPager
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = binding.tabs
-        tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = binding.fab
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        //val btnShowData = findViewById<Button>(R.id.btn_show_data)
+        binding.btnShowData.setOnClickListener{
+            setupDatabase(binding)
         }
 
-        setupDatabase()
     }
-    private fun setupDatabase(){
+
+    private fun setupDatabase(binding: FragmentMainBinding){
+        //unos podataka u bazu
         MockData.insertAllData(this)
+
+        var actions : List<String>? = DataRepository(this).getActionNames()
+
+        //prikaz podataka na zaslonu
+        if(actions != null){
+            binding.lstActions.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, actions)
+        }
     }
 }

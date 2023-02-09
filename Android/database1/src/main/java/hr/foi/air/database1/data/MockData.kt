@@ -29,7 +29,7 @@ class MockData {
             dao.insertActions(action, action1, action2, action3)
 
             var user : User = User()
-            user.email = "marinoroz42@gmail.com"
+            user.username = "marinoroz"
             user.password = "Marin123"
             user.id = 1
 

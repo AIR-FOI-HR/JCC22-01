@@ -19,12 +19,13 @@
 
     <ListView
         android:id="@+id/lst_actions"
-        android:layout_width="413dp"
-        android:layout_height="515dp"
+        android:layout_width="390dp"
+        android:layout_height="460dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_show_data"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.746"
+        tools:layout_editor_absoluteX="5dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/empty_message"
@@ -32,8 +33,10 @@
         android:layout_height="48dp"
         android:text="@string/noData"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.323" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

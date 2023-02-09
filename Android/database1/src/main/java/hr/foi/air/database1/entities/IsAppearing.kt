@@ -6,7 +6,7 @@ import androidx.room.Entity
     primaryKeys = ["obstacleId", "rideId"], tableName = "appearances"
 )
 data class IsAppearing (
-    var obstacleId : Int,
-    var rideId : Int,
+    var obstacleId : Int=0,
+    var rideId : Int=0,
     var occuringDistance : Int? = null
 )

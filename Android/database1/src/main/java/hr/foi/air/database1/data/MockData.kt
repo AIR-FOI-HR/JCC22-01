@@ -40,7 +40,7 @@ class MockData {
             car.id = 1
 
             var ride1 : Ride = Ride()
-            ride1.id = 1
+            ride1.rideId = 1
             ride1.carId = car.id
             ride1.distance = 2000
             ride1.obstacleCount = 2
@@ -53,29 +53,29 @@ class MockData {
             obstacle.name = "Pješak"
             obstacle.description = "Uočen je pješak na pješačkom prijelazu"
             obstacle.actionId = action3.id
-            obstacle.id = 0
+            obstacle.obstacleId = 0
 
             var obstacle1 : Obstacle = Obstacle()
             obstacle1.name = "Semafor-crveno"
             obstacle1.description = "Upalilo se crveno svjetlo na semaforu"
             obstacle1.actionId = action3.id
-            obstacle1.id = 1
+            obstacle1.obstacleId = 1
 
             var obstacle2 : Obstacle = Obstacle()
             obstacle2.name = "Desni zavoj"
             obstacle2.description = "Pojavio se desni zavoj"
             obstacle2.actionId = action.id
-            obstacle2.id = 2
+            obstacle2.obstacleId = 2
 
             var obstacle3 : Obstacle = Obstacle()
             obstacle3.name = "Lijevi zavoj"
             obstacle3.description = "Pojavio se lijevi zavoj"
             obstacle3.actionId = action1.id
-            obstacle3.id = 3
+            obstacle3.obstacleId = 3
 
             dao.insertObstacles(obstacle, obstacle1, obstacle2, obstacle3)
 
-            /*var appear : IsAppearing = IsAppearing()
+            var appear : IsAppearing = IsAppearing()
             appear.obstacleId = 2
             appear.rideId = 1
             appear.occuringDistance = 500
@@ -85,7 +85,7 @@ class MockData {
             appear1.rideId = 1
             appear1.occuringDistance = 1500
 
-            dao.insertAppearances(appear, appear1)*/
+            dao.insertAppearances(appear, appear1)
         }
     }
 }

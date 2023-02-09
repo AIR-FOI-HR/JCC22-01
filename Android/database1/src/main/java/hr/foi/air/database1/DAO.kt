@@ -48,12 +48,9 @@ interface DAO {
     @Query("SELECT * FROM users")
     fun getAllUsers(): List<User>
 
-    @Query("SELECT * FROM Cars WHERE name LIKE :name")
+    @Query("SELECT * FROM cars WHERE name LIKE :name")
     fun getAllCarsByName(name: String): List<Car>
 
-    @Query("SELECT * FROM Rides WHERE carId = :carId")
+    @Query("SELECT * FROM rides WHERE carId = :carId")
     fun getAllRidesByCar(carId: Int): List<Ride>
-
-    @Query("SELECT `action` FROM obstacleTypes")
-    fun getActionNameForObstacle():List<String>
 }

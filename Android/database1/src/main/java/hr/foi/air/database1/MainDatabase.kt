@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import hr.foi.air.database1.entities.*
 
-@Database(version = 2, entities = [Car::class, IsAppearing::class, Obstacle::class, Action::class, Ride::class, User::class], views = [], exportSchema = false)
+@Database(version = 3, entities = [Car::class, IsAppearing::class, Obstacle::class, Action::class, Ride::class, User::class], views = [], exportSchema = false)
 abstract class MainDatabase : RoomDatabase() {
     abstract fun getDao() : DAO
 

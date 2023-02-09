@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "obstacles")
 data class Obstacle(
-    @PrimaryKey(autoGenerate = true)
-    var id : Int? = null,
+    @PrimaryKey(autoGenerate = false)
+    var obstacleId : Int? = null,
     @ForeignKey(entity = Action::class, parentColumns = ["id"], childColumns = ["actionId"])
     @ColumnInfo(index = true)
     var actionId : Int? = null,

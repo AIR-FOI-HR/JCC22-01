@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "rides")
 data class Ride(
-    @PrimaryKey(autoGenerate = true)
-    var id : Int? = null,
+    @PrimaryKey(autoGenerate = false)
+    var rideId : Int? = null,
     @ForeignKey(entity = Car::class, parentColumns = ["id"], childColumns = ["carId"])
     @ColumnInfo(index = true)
     var carId : Int? = null,

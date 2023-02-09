@@ -12,8 +12,10 @@ class DataRepository(context: Context) {
         dao = MainDatabase.getInstance(context).getDao()
     }
 
-    /*fun getRideObstacles(): List<String>?
+    fun getRideObstacles(): List<String>?
     {
         return dao?.getObstacles()
-    }*/
+
+    }
+
 }

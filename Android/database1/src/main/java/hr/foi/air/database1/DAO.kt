@@ -73,4 +73,7 @@ interface DAO {
 
     /*@Query("SELECT name FROM obstacles inner join appearances on obstacleId=obstacles.obstacleId")
     fun getObstacles(): List<String>*/
+    @Query("SELECT name FROM obstacles inner join appearances on obstacles.obstacleId=appearances.obstacleId")
+    fun getObstacles():List<String>
+
 }

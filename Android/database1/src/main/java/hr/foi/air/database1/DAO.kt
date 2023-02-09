@@ -6,29 +6,46 @@ import hr.foi.air.database1.entities.*
 @Dao
 interface DAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCars(vararg Cars: Car) : List<Long>
-    @Update fun updateCars(vararg Cars: Car)
-    @Delete fun deleteCars(vararg Cars: Car)
+    fun insertCars(vararg Cars: Car): List<Long>
+    @Update
+    fun updateCars(vararg Cars: Car)
+    @Delete
+    fun deleteCars(vararg Cars: Car)
 
-    @Insert fun insertRides(vararg Rides: Ride) : List<Long>
-    @Update fun updateRides(vararg Rides: Ride)
-    @Delete fun deleteRides(vararg Rides: Ride)
+    @Insert
+    fun insertRides(vararg Rides: Ride): List<Long>
+    @Update
+    fun updateRides(vararg Rides: Ride)
+    @Delete
+    fun deleteRides(vararg Rides: Ride)
 
-    @Insert fun insertObstacles(vararg Obstacles: Obstacle)
-    @Update fun updateObstacles(vararg Obstacles: Obstacle)
-    @Delete fun deleteObstacles(vararg Obstacles: Obstacle)
+    @Insert
+    fun insertObstacles(vararg Obstacles: Obstacle)
+    @Update
+    fun updateObstacles(vararg Obstacles: Obstacle)
+    @Delete
+    fun deleteObstacles(vararg Obstacles: Obstacle)
 
-    @Insert fun insertActions(vararg Actions: Action) : List<Long>
-    @Update fun updateActions(vararg Actions: Action)
-    @Delete fun deleteActions(vararg Actions: Action)
+    @Insert
+    fun insertActions(vararg Actions: Action): List<Long>
+    @Update
+    fun updateActions(vararg Actions: Action)
+    @Delete
+    fun deleteActions(vararg Actions: Action)
 
-    @Insert fun insertAppearances(vararg Appearances: IsAppearing)
-    @Update fun updateAppearances(vararg Appearances: IsAppearing)
-    @Delete fun deleteAppearances(vararg Appearances: IsAppearing)
+    @Insert
+    fun insertAppearances(vararg Appearances: IsAppearing)
+    @Update
+    fun updateAppearances(vararg Appearances: IsAppearing)
+    @Delete
+    fun deleteAppearances(vararg Appearances: IsAppearing)
 
-    @Insert fun insertUsers(vararg Users: User) : List<Long>
-    @Update fun updateUsers(vararg Users: User)
-    @Delete fun deleteUsers(vararg Users: User)
+    @Insert
+    fun insertUsers(vararg Users: User): List<Long>
+    @Update
+    fun updateUsers(vararg Users: User)
+    @Delete
+    fun deleteUsers(vararg Users: User)
 
     @Query("SELECT * FROM cars")
     fun getAllCars(): List<Car>
@@ -53,10 +70,7 @@ interface DAO {
 
     @Query("SELECT * FROM rides WHERE carId = :carId")
     fun getAllRidesByCar(carId: Int): List<Ride>
-<<<<<<< HEAD
-=======
 
-    @Query("SELECT name FROM obstacles inner join appearances on obstacleId=obstacles.id")
-    fun getObstacles():List<String>
->>>>>>> afda9b5af923280085a5a45f13789f258f57dc62
+    /*@Query("SELECT name FROM obstacles inner join appearances on obstacleId=obstacles.obstacleId")
+    fun getObstacles(): List<String>*/
 }

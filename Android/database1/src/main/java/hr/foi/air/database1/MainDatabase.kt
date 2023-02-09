@@ -6,11 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import hr.foi.air.database1.entities.*
 
-@Database(version = 1, entities = [Car::class, IsAppearing::class,Obstacle::class,ObstacleType::class,Ride::class], views = [], exportSchema = false)
+@Database(version = 2, entities = [Car::class, IsAppearing::class, Obstacle::class, Action::class, Ride::class, User::class], views = [], exportSchema = false)
 abstract class MainDatabase : RoomDatabase() {
     abstract fun getDao() : DAO
 
     companion object{
+        @Volatile
         private var instance : MainDatabase? = null
 
         fun getInstance(context : Context) : MainDatabase{
@@ -18,7 +19,7 @@ abstract class MainDatabase : RoomDatabase() {
                 instance = Room.databaseBuilder(
                     context.applicationContext,
                     MainDatabase::class.java, "autoSim.db"
-                ).build()
+                ).allowMainThreadQueries().build()
             }
 
             return instance as MainDatabase

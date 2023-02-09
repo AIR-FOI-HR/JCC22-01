@@ -6,8 +6,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import hr.foi.air.autosimulation.ui.main.SectionsPagerAdapter
 import hr.foi.air.autosimulation.databinding.ActivityMainBinding
 import hr.foi.air.database1.data.MockData

@@ -10,7 +10,7 @@ interface DAO {
     @Update fun updateCars(vararg Cars: Car)
     @Delete fun deleteCars(vararg Cars: Car)
 
-    @Insert fun insertRides(vararg Rides: Ride)
+    @Insert fun insertRides(vararg Rides: Ride) : List<Long>
     @Update fun updateRides(vararg Rides: Ride)
     @Delete fun deleteRides(vararg Rides: Ride)
 
@@ -18,13 +18,17 @@ interface DAO {
     @Update fun updateObstacles(vararg Obstacles: Obstacle)
     @Delete fun deleteObstacles(vararg Obstacles: Obstacle)
 
-    @Insert fun insertObstacleTypes(vararg ObstacleTypes: ObstacleType)
-    @Update fun updateObstacleTypes(vararg ObstacleTypes: ObstacleType)
-    @Delete fun deleteObstacleTypes(vararg ObstacleTypes: ObstacleType)
+    @Insert fun insertActions(vararg Actions: Action) : List<Long>
+    @Update fun updateActions(vararg Actions: Action)
+    @Delete fun deleteActions(vararg Actions: Action)
 
     @Insert fun insertAppearances(vararg Appearances: IsAppearing)
     @Update fun updateAppearances(vararg Appearances: IsAppearing)
     @Delete fun deleteAppearances(vararg Appearances: IsAppearing)
+
+    @Insert fun insertUsers(vararg Users: User) : List<Long>
+    @Update fun updateUsers(vararg Users: User)
+    @Delete fun deleteUsers(vararg Users: User)
 
     @Query("SELECT * FROM cars")
     fun getAllCars(): List<Car>
@@ -35,11 +39,14 @@ interface DAO {
     @Query("SELECT * FROM obstacles")
     fun getAllObstacles(): List<Obstacle>
 
-    @Query("SELECT * FROM obstacleTypes")
-    fun getAllObstacleTypes(): List<ObstacleType>
+    @Query("SELECT * FROM actions")
+    fun getAllObstacleTypes(): List<Action>
 
     @Query("SELECT * FROM appearances")
     fun getAllAppearances(): List<IsAppearing>
+
+    @Query("SELECT * FROM users")
+    fun getAllUsers(): List<User>
 
     @Query("SELECT * FROM Cars WHERE name LIKE :name")
     fun getAllCarsByName(name: String): List<Car>

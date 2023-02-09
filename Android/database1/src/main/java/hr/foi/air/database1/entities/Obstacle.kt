@@ -1,5 +1,6 @@
 package hr.foi.air.database1.entities
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -8,8 +9,9 @@ import androidx.room.PrimaryKey
 data class Obstacle(
     @PrimaryKey(autoGenerate = true)
     var id : Int? = null,
-    @ForeignKey(entity = ObstacleType::class, parentColumns = ["id"], childColumns = ["typeId"])
-    var typeId : Int,
+    @ForeignKey(entity = Action::class, parentColumns = ["id"], childColumns = ["actionId"])
+    @ColumnInfo(index = true)
+    var actionId : Int? = null,
     var name : String = "",
-    var description : String = ""
+    var description : String = "",
 )

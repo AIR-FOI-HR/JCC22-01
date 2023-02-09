@@ -54,6 +54,6 @@ interface DAO {
     @Query("SELECT * FROM Rides WHERE carId = :carId")
     fun getAllRidesByCar(carId: Int): List<Ride>
 
-    @Query("SELECT `action` FROM obstacleTypes")
-    fun getActionNameForObstacle():List<String>
+    @Query("SELECT name FROM obstacles inner join appearances on obstacleId=obstacles.id")
+    fun getObstacles():List<String>
 }

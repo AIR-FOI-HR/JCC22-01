@@ -12,8 +12,8 @@ class DataRepository(context: Context) {
         dao = MainDatabase.getInstance(context).getDao()
     }
 
-    fun getActionNames(): List<String>?
+    fun getRideObstacles(): List<String>?
     {
-        return dao?.getActionNameForObstacle()
+        return dao?.getObstacles()
     }
 }

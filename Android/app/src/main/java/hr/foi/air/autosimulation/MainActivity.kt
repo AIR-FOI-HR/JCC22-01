@@ -5,10 +5,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-<<<<<<< HEAD
 import hr.foi.air.autosimulation.ui.main.SectionsPagerAdapter
-=======
->>>>>>> 8545055229ea8d11a0c81c2508bc9c30d58fcc03
 import hr.foi.air.autosimulation.databinding.ActivityMainBinding
 import hr.foi.air.autosimulation.databinding.FragmentMainBinding
 import hr.foi.air.database1.data.DataRepository
@@ -32,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         //unos podataka u bazu
         MockData.insertAllData(this)
 
-        var actions : List<String>? = DataRepository(this).getActionNames()
+        var actions : List<String>? = DataRepository(this).getRideObstacles()
 
         //prikaz podataka na zaslonu
         if(actions != null){

@@ -5,6 +5,8 @@ import android.content.Intent.EXTRA_USER
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -13,7 +15,10 @@ import hr.foi.air.database1.MainDatabase
 import hr.foi.air.database1.data.MockData
 import hr.foi.air.database1.entities.User
 import java.io.Serializable
-
+import androidx.fragment.app.FragmentActivity
+import hr.foi.air.autosimulation.databinding.ActivityMainBinding
+import hr.foi.air.autosimulation.databinding.FragmentMainBinding
+import hr.foi.air.database1.data.DataRepository
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +45,6 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra(EXTRA_USER, user as Serializable)
 
                         startActivity(intent)
-
-
                     }
 
                 }

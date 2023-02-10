@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AutoSimulation"
         tools:targetApi="31">
         <activity
-            android:name=".Login"
+            android:name=".CarMenu"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

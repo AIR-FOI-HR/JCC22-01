@@ -57,7 +57,7 @@ interface DAO {
     fun getAllObstacles(): List<Obstacle>
 
     @Query("SELECT * FROM actions")
-    fun getAllObstacleTypes(): List<Action>
+    fun getAllActions(): List<Action>
 
     @Query("SELECT * FROM appearances")
     fun getAllAppearances(): List<IsAppearing>
@@ -73,7 +73,19 @@ interface DAO {
 
     /*@Query("SELECT name FROM obstacles inner join appearances on obstacleId=obstacles.obstacleId")
     fun getObstacles(): List<String>*/
-    @Query("SELECT name FROM obstacles inner join appearances on obstacles.obstacleId=appearances.obstacleId")
-    fun getObstacles():List<String>
+    @Query("SELECT * FROM obstacles inner join appearances on obstacles.obstacleId=appearances.obstacleId inner join rides on rides.rideId= :rideId")
+    fun getObstacles(rideId: Int):List<Obstacle>
+
+    @Query("SELECT * FROM cars WHERE cars.userId = :userId")
+    fun getCars(userId: Int?):List<Car>
+
+    @Query("SELECT * FROM rides WHERE rides.carId = :carId")
+    fun getRide(carId: Int):Ride
+
+    @Query("SELECT * FROM appearances WHERE obstacleId = :obstacleId")
+    fun getObstacleAppearance(obstacleId: Int):IsAppearing
+
+    @Query("SELECT * FROM actions WHERE actions.id = :actionId")
+    fun getActionForObstacle(actionId: Int):Action
 
 }

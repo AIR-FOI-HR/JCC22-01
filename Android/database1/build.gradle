@@ -43,7 +43,7 @@ dependencies {
 
     //room
     def roomVersion = "2.2.1"
-    implementation("androidx.room:room-runtime:$roomVersion")
+    api "androidx.room:room-runtime:$roomVersion"
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
 }

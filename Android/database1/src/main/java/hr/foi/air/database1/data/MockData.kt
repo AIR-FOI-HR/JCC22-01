@@ -42,7 +42,7 @@ class MockData {
             var ride1 : Ride = Ride()
             ride1.rideId = 1
             ride1.carId = car.id
-            ride1.distance = 2000
+            ride1.distance = 50
             ride1.obstacleCount = 2
 
             dao.insertUsers(user)
@@ -78,12 +78,12 @@ class MockData {
             var appear : IsAppearing = IsAppearing()
             appear.obstacleId = 2
             appear.rideId = 1
-            appear.occuringDistance = 500
+            appear.occuringDistance = 15
 
             var appear1 : IsAppearing = IsAppearing()
             appear1.obstacleId = 0
             appear1.rideId = 1
-            appear1.occuringDistance = 1500
+            appear1.occuringDistance = 40
 
             dao.insertAppearances(appear, appear1)
         }

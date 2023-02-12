@@ -50,6 +50,7 @@ class CarMenu : AppCompatActivity() {
 
                     }
                     var adapter = CarRecyclerAdapter(cars!!)
+                    newRecycleview.adapter = adapter
                     adapter.setOnItemClickListener(object : CarRecyclerAdapter.onItemClickListener{
                         override fun onItemClick(position: Int){
                             val intent = Intent(this@CarMenu, SimulationListView::class.java)

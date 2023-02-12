@@ -39,6 +39,12 @@ class MockData {
             car.speed = 50
             car.id = 1
 
+            var car1 : Car = Car()
+            car1.name = "Golf 7"
+            car1.userId = user.id
+            car1.speed = 120
+            car1.id = 2
+
             var ride1 : Ride = Ride()
             ride1.rideId = 1
             ride1.carId = car.id
@@ -46,7 +52,7 @@ class MockData {
             ride1.obstacleCount = 2
 
             dao.insertUsers(user)
-            dao.insertCars(car)
+            dao.insertCars(car,car1)
             dao.insertRides(ride1)
 
             var obstacle : Obstacle = Obstacle()

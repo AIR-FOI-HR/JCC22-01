@@ -2,14 +2,18 @@ package hr.foi.air.database1.entities
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import hr.foi.air.core.entities.Car
 
-@Entity(tableName = "cars")
-data class Car(
+@Entity(tableName = "cars", primaryKeys = ["id"])
+class Car() : Car()
+{
     @PrimaryKey(autoGenerate = true)
-    var id : Int? = null,
-    @ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["useId"])
-    var userId : Int? = null,
-    var name : String = "",
-    var speed : Int? = null
-)
+    @Ignore
+    override var id: Int? = null
+
+    @ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["userId"])
+    @Ignore
+    override var userId: Int? = null
+}

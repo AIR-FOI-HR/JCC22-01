@@ -6,4 +6,7 @@
     <string name="no_data" />
     <string name="noData">No data!</string>
     <string name="login">LOGIN</string>
+    <string name="car_image">Image shows car.</string>
+    <string name="car_name">Name of the car.</string>
+    <string name="car_desc">Speed of the car.</string>
 </resources>

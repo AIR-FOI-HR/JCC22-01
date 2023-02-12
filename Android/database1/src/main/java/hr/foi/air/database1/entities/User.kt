@@ -1,13 +1,13 @@
 package hr.foi.air.database1.entities
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import java.io.Serializable
+import hr.foi.air.core.entities.User
 
-@Entity(tableName = "users")
-data class User(
+@Entity(tableName = "users", primaryKeys = ["id"])
+class User(): User()
+{
     @PrimaryKey(autoGenerate = true)
-    var id : Int? = null,
-    var username : String = "",
-    var password : String = ""
-) : Serializable
+    @Ignore override var id : Int? = null;
+}

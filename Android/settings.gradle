@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "AutoSimulation"
 include ':app'
 include ':database1'
+include ':core'

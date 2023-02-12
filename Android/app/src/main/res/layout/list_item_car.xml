@@ -10,13 +10,17 @@
     android:clickable="true"
     android:focusable="true"
     app:cardCornerRadius="5dp"
-    android:foreground="?android:selectableItemBackground">
+    android:background="@null"
+    app:cardBackgroundColor="@color/trans"
+    >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:background="@color/trans"
+        >
 
         <ImageView
             android:id="@+id/car_image"

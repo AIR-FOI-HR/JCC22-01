@@ -18,12 +18,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/car_image"
-            android:layout_width="match_parent"
-            android:layout_height="95dp"
-            android:contentDescription="@string/car_image"
-            android:src="@drawable/golf2"/>
+            android:layout_height="100dp"
+            android:layout_width="200dp"
+             />
 
         <TextView
             android:id="@+id/car_name"

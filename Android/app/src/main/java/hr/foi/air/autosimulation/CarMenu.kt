@@ -2,22 +2,15 @@ package hr.foi.air.autosimulation
 
 import android.content.Intent
 import android.content.Intent.EXTRA_USER
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import hr.foi.air.autosimulation.databinding.ActivityLoginBinding
-import hr.foi.air.autosimulation.databinding.ActivityMainBinding
-import hr.foi.air.autosimulation.repos.DataRepository
-import hr.foi.air.autosimulation.repos.LoadDataListener
-import hr.foi.air.database1.MainDatabase
-import hr.foi.air.database1.entities.*
-import java.lang.Thread.sleep
-import hr.foi.air.core.entities.User
-import hr.foi.air.core.entities.Car
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hr.foi.air.autosimulation.recyclerview.CarRecyclerAdapter
-import java.text.FieldPosition
+import hr.foi.air.autosimulation.repos.DataRepository
+import hr.foi.air.autosimulation.repos.LoadDataListener
+import hr.foi.air.core.entities.Car
+import hr.foi.air.core.entities.User
 
 class CarMenu : AppCompatActivity() {
     private lateinit var newRecycleview : RecyclerView
@@ -25,6 +18,7 @@ class CarMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //val binding = ActivityMainBinding.inflate(layoutInflater)
 
@@ -35,26 +29,35 @@ class CarMenu : AppCompatActivity() {
             var repository = DataRepository()
             val context = this
 
+            val user = intent.getSerializableExtra(EXTRA_USER) as User
+            var carList: ArrayList<Car> = arrayListOf()
+
             repository.loadData(this, object : LoadDataListener {
-                open override fun onDataLoaded(
+                override fun onDataLoaded(
                     users: List<User>?,
                     cars: List<Car>?
                 ) {
-                    if (cars!=null){
-                        Log.d("cars",cars[1].name)
-                        //binding.mainRecycler.layoutManager = LinearLayoutManager(context)
-                        //binding.mainRecycler.adapter =CarRecyclerAdapter(cars)
-                        newRecycleview=findViewById(R.id.main_recycler)
-                        newRecycleview.layoutManager = LinearLayoutManager(context)
-                        newRecycleview.adapter = CarRecyclerAdapter(cars)
+                    if (cars != null) {
+                    cars[0].titleImage = R.drawable.golf2
+                    cars[1].titleImage = R.drawable.golf7
+                    cars[2].titleImage = R.drawable.audia5
+                    //binding.mainRecycler.layoutManager = LinearLayoutManager(context)
+                    //binding.mainRecycler.adapter =CarRecyclerAdapter(cars)
 
+                        for (Car in cars){
+                            if (Car.userId == user.id)
+                                carList.add(Car)
+                        }
                     }
-                    var adapter = CarRecyclerAdapter(cars!!)
+
+                    newRecycleview=findViewById(R.id.main_recycler)
+                    newRecycleview.layoutManager = LinearLayoutManager(context)
+                    var adapter = CarRecyclerAdapter(carList)
                     newRecycleview.adapter = adapter
                     adapter.setOnItemClickListener(object : CarRecyclerAdapter.onItemClickListener{
                         override fun onItemClick(position: Int){
                             val intent = Intent(this@CarMenu, SimulationListView::class.java)
-                            intent.putExtra("heading", cars[position].name)
+                            intent.putExtra("heading", carList[position].name)
 
                             startActivity(intent)
                         }

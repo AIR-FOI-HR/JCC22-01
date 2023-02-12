@@ -1,5 +1,6 @@
 package hr.foi.air.autosimulation
 
+import android.content.Intent
 import android.content.Intent.EXTRA_USER
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,7 @@ import hr.foi.air.core.entities.Car
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hr.foi.air.autosimulation.recyclerview.CarRecyclerAdapter
+import java.text.FieldPosition
 
 class CarMenu : AppCompatActivity() {
     private lateinit var newRecycleview : RecyclerView
@@ -24,45 +26,17 @@ class CarMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        //val binding = ActivityMainBinding.inflate(layoutInflater)
 
-        /*var db = MainDatabase.getInstance(this)
-
-        val currentUser = intent.getSerializableExtra(EXTRA_USER) as User
-        val userCars: List<Car> = db.getDao().getCars(currentUser.id)
-
-        val carRide: Ride = db.getDao().getRide(userCars[0].id!!)
-        Log.d("cars", carRide.distance.toString())
-
-        val obstaclesOnRide: List<Obstacle> = db.getDao().getObstacles(carRide.rideId!!)
-
-        var distance = carRide.distance
-        while (distance!! >= 0) {
-            Log.d("cars", distance.toString())
-            for (Obstacle in obstaclesOnRide) {
-                var appearance: IsAppearing =
-                    db.getDao().getObstacleAppearance(Obstacle.obstacleId!!)
-                if (appearance.occuringDistance == distance) {
-                    Log.d("cars", Obstacle.name + " - " + Obstacle.description)
-                    var action: Action = db.getDao().getActionForObstacle(Obstacle.actionId!!)
-                    Log.d("cars", action.name)
-                    sleep(3000)
-                }
-            }
-            distance--
-        }
-
-         */
-
-        displayCars(binding)
+        displayCars()
     }
 
-        fun displayCars(binding: ActivityMainBinding){
+        fun displayCars(){
             var repository = DataRepository()
             val context = this
 
             repository.loadData(this, object : LoadDataListener {
-                override fun onDataLoaded(
+                open override fun onDataLoaded(
                     users: List<User>?,
                     cars: List<Car>?
                 ) {
@@ -73,7 +47,17 @@ class CarMenu : AppCompatActivity() {
                         newRecycleview=findViewById(R.id.main_recycler)
                         newRecycleview.layoutManager = LinearLayoutManager(context)
                         newRecycleview.adapter = CarRecyclerAdapter(cars)
+
                     }
+                    var adapter = CarRecyclerAdapter(cars!!)
+                    adapter.setOnItemClickListener(object : CarRecyclerAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int){
+                            val intent = Intent(this@CarMenu, SimulationListView::class.java)
+                            intent.putExtra("heading", cars[position].name)
+
+                            startActivity(intent)
+                        }
+                    })
                 }
             })
         }

@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AutoSimulation"
         tools:targetApi="31">
         <activity
+            android:name=".SimulationListView"
+            android:exported="false" />
+        <activity
             android:name=".CarMenu"
             android:exported="false" />
         <activity

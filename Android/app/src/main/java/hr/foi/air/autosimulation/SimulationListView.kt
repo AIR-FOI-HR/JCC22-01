@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.TextView
-import hr.foi.air.core.simulation.FileToList
+import hr.foi.air.autosimulation.repos.FileRepository
 import hr.foi.air.core.simulation.SolutionMakerClass
-import java.io.File
+import hr.foi.air.database1.data.FileDataSource
 import java.io.IOException
 import java.io.InputStream
 
@@ -17,40 +16,11 @@ class SimulationListView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulation_list_view)
 
-        /*val carName :TextView = findViewById(R.id.car_name)
+        val fileRepos = FileRepository(this)
+        val listSimulation = fileRepos.initializeSimulation()
 
-        val bundle: Bundle?= intent.extras
-        val heading = bundle!!.getString("heading")
-
-        carName.text = heading*/
-
-        var readerLists = FileToList()
-        var solutionn = SolutionMakerClass()
-
-        val path = "textfile.txt"
-        var inputStream: InputStream? = null
-        try {
-            inputStream = assets.open(path)
-        } catch (e: IOException) {
-            Log.e("Error", "Failed to open file: $path", e)
-        }
         val ListViews = findViewById<ListView>(R.id.userlist)
-        if (ListViews == null) {
-            Log.e("Error", "ListView with ID R.id.userlist not found")
-        } else {
-            val lista = readerLists.ReaderFile(inputStream!!)
-            val lista2 : ArrayList<String> = arrayListOf()
-            for(a in lista){
-                if(a!="-"){
-                    lista2.add(a)
-                    var sol  = solutionn.makeSolution(a)
-                    lista2.add(sol)
-                }
-            }
-
-            ListViews.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lista2)
-        }
-
+        ListViews.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listSimulation)
 
     }
 }

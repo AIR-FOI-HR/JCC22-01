@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import hr.foi.air.core.simulation.FileToList
+import hr.foi.air.core.simulation.SolutionMakerClass
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
@@ -24,6 +25,7 @@ class SimulationListView : AppCompatActivity() {
         carName.text = heading*/
 
         var readerLists = FileToList()
+        var solutionn = SolutionMakerClass()
 
         val path = "textfile.txt"
         var inputStream: InputStream? = null
@@ -37,7 +39,16 @@ class SimulationListView : AppCompatActivity() {
             Log.e("Error", "ListView with ID R.id.userlist not found")
         } else {
             val lista = readerLists.ReaderFile(inputStream!!)
-            ListViews.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lista)
+            val lista2 : ArrayList<String> = arrayListOf()
+            for(a in lista){
+                if(a!="-"){
+                    lista2.add(a)
+                    var sol  = solutionn.makeSolution(a)
+                    lista2.add(sol)
+                }
+            }
+
+            ListViews.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lista2)
         }
 
 

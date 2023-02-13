@@ -9,4 +9,5 @@
     <string name="car_image">Image shows car.</string>
     <string name="car_name">Name of the car.</string>
     <string name="car_desc">Speed of the car.</string>
+    <string name="start_simulation">Start Simulation</string>
 </resources>

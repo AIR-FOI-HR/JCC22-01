@@ -17,3 +17,5 @@ class Car() : Car()
     @Ignore
     override var userId: Int? = null
 }
+
+

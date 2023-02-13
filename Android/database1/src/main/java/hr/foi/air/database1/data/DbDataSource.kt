@@ -4,9 +4,10 @@ import android.content.Context
 import hr.foi.air.core.data.DataSourceListener
 import hr.foi.air.database1.DAO
 import hr.foi.air.database1.MainDatabase
+
+import hr.foi.air.core.data.DataSource
 import hr.foi.air.database1.entities.Car
 import hr.foi.air.database1.entities.User
-import hr.foi.air.core.data.DataSource
 
 class DbDataSource : DataSource {
     private var dao : DAO? = null

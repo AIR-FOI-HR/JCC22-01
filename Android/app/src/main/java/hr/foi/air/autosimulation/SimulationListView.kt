@@ -3,31 +3,32 @@ package hr.foi.air.autosimulation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.TextView
+import hr.foi.air.autosimulation.databinding.ActivitySimulationListViewBinding
 import hr.foi.air.core.simulation.FileToList
 import hr.foi.air.core.simulation.SolutionMakerClass
-import java.io.File
 import java.io.IOException
 import java.io.InputStream
 
 class SimulationListView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simulation_list_view)
+        var binding = ActivitySimulationListViewBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        /*val carName :TextView = findViewById(R.id.car_name)
+        binding.buttonStartRide.setOnClickListener{
+            loadSimulation()
+        }
+    }
 
-        val bundle: Bundle?= intent.extras
-        val heading = bundle!!.getString("heading")
-
-        carName.text = heading*/
-
+    fun loadSimulation(binding: ActivitySimulationListViewBinding) {
         var readerLists = FileToList()
         var solutionn = SolutionMakerClass()
 
-        val path = "textfile.txt"
+        val path = "hr/foi/air/database1/ride/textfile.txt"
         var inputStream: InputStream? = null
         try {
             inputStream = assets.open(path)
@@ -43,14 +44,11 @@ class SimulationListView : AppCompatActivity() {
             for(a in lista){
                 if(a!="-"){
                     lista2.add(a)
-                    var sol  = solutionn.makeSolution(a)
+                    val sol  = solutionn.makeSolution(a)
                     lista2.add(sol)
                 }
             }
-
             ListViews.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, lista2)
         }
-
-
     }
 }

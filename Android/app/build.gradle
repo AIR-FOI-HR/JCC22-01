@@ -59,4 +59,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_version"
     implementation "androidx.cardview:cardview:$recyclerview_version"
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }

@@ -7,10 +7,10 @@ class SolutionMakerClass : SolutionMaker {
     override fun makeSolution(a : String) : String {
         var add : String
         if(a == "pjesak"){
-            add = "zaustavi se i pricekaj da prijede"
+            add = "zaustavi se, pricekaj da prijede i onda nastavi "
         }
         else if(a == "semafor"){
-            add = "zaustavi se i pricekaj zeleno"
+            add = "zaustavi se, pricekaj zeleno i onda nastavi"
         }
         else if(a == "lijevi zavoj"){
             add = "uspori, daj lijevi zmigavac i skreni lijevo"

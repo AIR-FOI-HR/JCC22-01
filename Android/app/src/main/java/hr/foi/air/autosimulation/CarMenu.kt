@@ -18,10 +18,7 @@ class CarMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         //val binding = ActivityMainBinding.inflate(layoutInflater)
-
         displayCars()
     }
 
@@ -33,10 +30,8 @@ class CarMenu : AppCompatActivity() {
             var carList: ArrayList<Car> = arrayListOf()
 
             repository.loadData(this, object : LoadDataListener {
-                override fun onDataLoaded(
-                    users: List<User>?,
-                    cars: List<Car>?
-                ) {
+                override fun onDataLoaded(users: List<User>?, cars: List<Car>?)
+                {
                     if (cars != null) {
                     cars[0].titleImage = R.drawable.golf2
                     cars[1].titleImage = R.drawable.golf7
@@ -49,16 +44,16 @@ class CarMenu : AppCompatActivity() {
                                 carList.add(Car)
                         }
                     }
-
                     newRecycleview=findViewById(R.id.main_recycler)
                     newRecycleview.layoutManager = LinearLayoutManager(context)
                     var adapter = CarRecyclerAdapter(carList)
                     newRecycleview.adapter = adapter
-                    adapter.setOnItemClickListener(object : CarRecyclerAdapter.onItemClickListener{
-                        override fun onItemClick(position: Int){
+                    adapter.setOnItemClickListener(object : CarRecyclerAdapter.onItemClickListener
+                    {
+                        override fun onItemClick(position: Int)
+                        {
                             val intent = Intent(this@CarMenu, SimulationListView::class.java)
                             intent.putExtra("heading", carList[position].name)
-
                             startActivity(intent)
                         }
                     })

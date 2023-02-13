@@ -20,7 +20,7 @@ class SimulationListView : AppCompatActivity() {
         setContentView(view)
 
         binding.buttonStartRide.setOnClickListener{
-            loadSimulation()
+            loadSimulation(binding)
         }
     }
 

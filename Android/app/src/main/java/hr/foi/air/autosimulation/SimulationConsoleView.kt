@@ -1,25 +1,22 @@
 package hr.foi.air.autosimulation
 
 import android.content.Intent
-import android.os.Bundle
-import android.os.Handler
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.LinearLayout
+import hr.foi.air.autosimulation.databinding.ActivitySimulationConsoleViewBinding
 import hr.foi.air.autosimulation.databinding.ActivitySimulationListViewBinding
-import hr.foi.air.autosimulation.repos.FileRepository
 import hr.foi.air.autosimulation.repos.SimulationRepository
 
-class SimulationListView : AppCompatActivity() {
+class SimulationConsoleView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        var binding = ActivitySimulationListViewBinding.inflate(layoutInflater)
+        var binding = ActivitySimulationConsoleViewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        binding.buttonConsoleView.setOnClickListener{
-            val intent = Intent(this@SimulationListView, SimulationConsoleView::class.java)
+        binding.buttonListView.setOnClickListener{
+            val intent = Intent(this@SimulationConsoleView, SimulationListView::class.java)
             startActivity(intent)
         }
 

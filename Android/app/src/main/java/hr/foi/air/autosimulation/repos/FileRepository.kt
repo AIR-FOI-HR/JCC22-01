@@ -9,15 +9,15 @@ class FileRepository(private val context: Context) {
         var readerLists = FileDataSource()
         var solution = SolutionMakerClass()
 
-        val lista = readerLists.loadFile(context)
-        val lista2 : ArrayList<String> = arrayListOf()
-        for(a in lista){
+        val loadList = readerLists.loadFile(context)
+        val readList : ArrayList<String> = arrayListOf()
+        for(a in loadList){
             if(a!="-"){
-                lista2.add(a)
+                readList.add(a)
                 var sol  = solution.makeSolution(a)
-                lista2.add(sol)
+                readList.add(sol)
             }
         }
-        return lista2
+        return readList
     }
 }

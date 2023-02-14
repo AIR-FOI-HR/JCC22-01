@@ -37,7 +37,7 @@ class CarRecyclerAdapter(context: Context, private val carList : ArrayList<Car>)
         val currentItem = carList[position]
         Picasso.get().load(currentItem.titleImage).into(holder.titleImage)
         holder.heading.text = currentItem.name
-        holder.description.text = currentItem.speed.toString()
+        holder.description.text = currentItem.speed.toString() + " km/h"
     }
     class CarViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
         val titleImage : ImageView = itemView.findViewById(R.id.car_image)

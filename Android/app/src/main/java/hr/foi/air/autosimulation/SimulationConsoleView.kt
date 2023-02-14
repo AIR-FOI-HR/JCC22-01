@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
 import hr.foi.air.autosimulation.databinding.ActivitySimulationConsoleViewBinding
-import hr.foi.air.autosimulation.databinding.ActivitySimulationListViewBinding
 import hr.foi.air.autosimulation.repos.SimulationRepository
 
 class SimulationConsoleView : AppCompatActivity() {

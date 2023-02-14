@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linear_layout"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -26,7 +26,6 @@
             android:text="@string/switch_to_list" />
     </LinearLayout>
 
-
     <Button
         android:id="@+id/button_start_ride"
         android:layout_width="match_parent"
@@ -35,13 +34,11 @@
         android:layout_margin="20dp"
         android:text="@string/start_simulation" />
 
-    <TextView
-        android:id="@+id/usertext"
+    <ListView
+        android:id="@+id/userlist"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
+        android:background="#60000000"
         />
-
-
-
 </LinearLayout>

@@ -1,21 +1,12 @@
 package hr.foi.air.autosimulation
 
 import android.os.Bundle
-<<<<<<< HEAD
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import androidx.appcompat.app.AppCompatActivity
-import hr.foi.air.autosimulation.repos.FileRepository
-=======
 import android.os.Handler
 import android.widget.LinearLayout
-import android.widget.ListView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import hr.foi.air.autosimulation.databinding.ActivitySimulationListViewBinding
-import hr.foi.air.autosimulation.recyclerview.SimulationListAdapter
 import hr.foi.air.autosimulation.repos.FileRepository
-
->>>>>>> 775d49a842e246bf076f319c42944cc06d6b36aa
 
 class SimulationListView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

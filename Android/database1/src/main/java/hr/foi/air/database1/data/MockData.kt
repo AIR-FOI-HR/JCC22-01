@@ -26,21 +26,21 @@ class MockData {
             car.userId = user.id
             car.speed = 50
             car.id = 1
-            car.titleImage = "https://i.imgur.com/DvpvklR.png"
+            car.titleImage = "http://www.brotnjo.info/wp-content/uploads/2017/12/golf2.jpg"
 
             var car1 : Car = Car()
             car1.name = "Golf 7"
             car1.userId = user.id
             car1.speed = 120
             car1.id = 2
-            car1.titleImage = "https://i.imgur.com/DvpvklR.png"
+            car1.titleImage = "https://www.automobili.ba/wp-content/uploads/2021/06/golf7-1.jpg"
 
             var car2 : Car = Car()
             car2.name = "Audi A5"
             car2.userId = user1.id
             car2.speed = 250
             car2.id = 3
-            car2.titleImage = "https://i.imgur.com/DvpvklR.png"
+            car2.titleImage = "https://parkers-images.bauersecure.com/Scale/wp-images/21855/cut-out/900x600/001-audi-a5.jpeg"
 
             dao.insertUsers(user,user1)
             dao.insertCars(car,car1,car2)

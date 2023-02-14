@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
 
-        var currentUser : User = CheckUserData.checkUserData(this,username.text.toString(),password.text.toString())
+        var currentUser : User? = CheckUserData.checkUserData(this,username.text.toString(),password.text.toString())
 
         if(currentUser!=null){
             Toast.makeText(this, "Uspjesna prijava", Toast.LENGTH_SHORT).show()

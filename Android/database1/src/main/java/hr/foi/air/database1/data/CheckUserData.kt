@@ -10,7 +10,7 @@ import java.io.Serializable
 
 class CheckUserData {
     companion object{
-        fun checkUserData(context: Context, username:String, password:String) : User{
+        fun checkUserData(context: Context, username:String, password:String) : User? {
             var db = MainDatabase.getInstance(context)
             val usersList : List<User> = db.getDao().getAllUsers()
             if(username.isNotBlank() && password.isNotBlank()){
@@ -20,7 +20,7 @@ class CheckUserData {
                     }
                 }
             }
-            return null!!
+            return null
         }
     }
 }

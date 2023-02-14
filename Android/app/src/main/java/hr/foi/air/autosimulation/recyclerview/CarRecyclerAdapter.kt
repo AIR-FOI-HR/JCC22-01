@@ -34,16 +34,16 @@ class CarRecyclerAdapter(context: Context, private val carList : ArrayList<Car>)
     }
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
+        val currentItem = carList[position]
+        Picasso.get().load(currentItem.titleImage).into(holder.titleImage)
+        holder.heading.text = currentItem.name
+        holder.description.text = currentItem.speed.toString()
     }
-    class CarViewHolder(@NotNull itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
-        val titleImage = itemView.findViewById<ImageView>(R.id.car_image)
-        val heading = itemView.findViewById<TextView>(R.id.car_name)
-        val description = itemView.findViewById<TextView>(R.id.car_desc)
-        fun bindDataToView(car : Car){
-            Picasso.with(itemView.context).load(car.titleImage).into(titleImage)
-            heading?.text = car.name
-            description?.text = car.speed.toString()
-        }
+    class CarViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
+        val titleImage : ImageView = itemView.findViewById(R.id.car_image)
+        val heading : TextView = itemView.findViewById(R.id.car_name)
+        val description : TextView = itemView.findViewById(R.id.car_desc)
+
         init{
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)

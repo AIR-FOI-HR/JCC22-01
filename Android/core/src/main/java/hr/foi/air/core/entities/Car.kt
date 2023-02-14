@@ -5,5 +5,5 @@ open class Car (
     open var userId : Int? = null,
     var name : String = "",
     var speed : Int? = null,
-    var titleImage : Int = 0
+    var titleImage : String = ""
 )

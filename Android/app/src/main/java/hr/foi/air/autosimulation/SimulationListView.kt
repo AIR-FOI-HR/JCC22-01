@@ -1,15 +1,10 @@
 package hr.foi.air.autosimulation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import hr.foi.air.autosimulation.repos.FileRepository
-import hr.foi.air.core.simulation.SolutionMakerClass
-import hr.foi.air.database1.data.FileDataSource
-import java.io.IOException
-import java.io.InputStream
 
 class SimulationListView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

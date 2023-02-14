@@ -9,7 +9,7 @@ import hr.foi.air.database1.entities.*
 class MockData {
     companion object{
         fun insertAllData(context : Context){
-            var dao : DAO = MainDatabase.getInstance(context).getDao()
+            val dao : DAO = MainDatabase.getInstance(context).getDao()
 
             var user : User = User()
             user.username = "marinoroz"
@@ -26,21 +26,21 @@ class MockData {
             car.userId = user.id
             car.speed = 50
             car.id = 1
-            car.titleImage = 0
+            car.titleImage = "https://i.imgur.com/DvpvklR.png"
 
             var car1 : Car = Car()
             car1.name = "Golf 7"
             car1.userId = user.id
             car1.speed = 120
             car1.id = 2
-            car1.titleImage = 1
+            car1.titleImage = "https://i.imgur.com/DvpvklR.png"
 
             var car2 : Car = Car()
             car2.name = "Audi A5"
             car2.userId = user1.id
             car2.speed = 250
             car2.id = 3
-            car2.titleImage = 2
+            car2.titleImage = "https://i.imgur.com/DvpvklR.png"
 
             dao.insertUsers(user,user1)
             dao.insertCars(car,car1,car2)

@@ -10,4 +10,6 @@
     <string name="car_name">Name of the car.</string>
     <string name="car_desc">Speed of the car.</string>
     <string name="start_simulation">Start Simulation</string>
+    <string name="switch_to_list">List</string>
+    <string name="switch_to_console">Console</string>
 </resources>

@@ -2,32 +2,56 @@ package hr.foi.air.autosimulation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
+import android.os.Handler
+import android.widget.LinearLayout
 import android.widget.ListView
+import android.widget.TextView
+import hr.foi.air.autosimulation.databinding.ActivitySimulationListViewBinding
+import hr.foi.air.autosimulation.recyclerview.SimulationListAdapter
 import hr.foi.air.autosimulation.repos.FileRepository
-import hr.foi.air.core.simulation.SolutionMakerClass
-import hr.foi.air.database1.data.FileDataSource
-import java.io.IOException
-import java.io.InputStream
+
 
 class SimulationListView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simulation_list_view)
 
-<<<<<<< HEAD
+        var binding = ActivitySimulationListViewBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         binding.buttonStartRide.setOnClickListener{
-            loadSimulation(binding)
+            startRide()
         }
     }
-=======
+
+    private fun startRide() {
+        val linearLayout = findViewById<LinearLayout>(R.id.linear_layout)
         val fileRepos = FileRepository(this)
         val listSimulation = fileRepos.initializeSimulation()
->>>>>>> 6325bf792442e253498c70694507ce17e764b073
 
-        val ListViews = findViewById<ListView>(R.id.userlist)
-        ListViews.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listSimulation)
-
+        var i = 0
+        fun displayNextItem() {
+            if (i < listSimulation.size) {
+                val textView = TextView(this)
+                textView.text = listSimulation[i]
+                linearLayout.addView(textView)
+                i++
+                Handler().postDelayed({ displayNextItem() }, 2000) // wait for 3 second before displaying the next item
+            }
+        }
+        displayNextItem()
     }
+
+   /* private fun startRide() {
+        val listView = findViewById<ListView>(R.id.usertext)
+        val fileRepos = FileRepository(this)
+        val listSimulation = fileRepos.initializeSimulation()
+        val adapter = SimulationListAdapter(this, listSimulation)
+
+        listView.adapter = adapter
+
+        Handler().postDelayed({ adapter.displayNextItem() }, 1000)
+    }
+
+    */
+
 }
